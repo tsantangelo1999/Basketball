@@ -13,4 +13,5 @@ public class Team
 
     public final String NAME;
     public final int pointsScored;
+    public final int pointsAgainst;
 }
