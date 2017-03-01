@@ -1,16 +1,18 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.io.File;
 
 public class Team
 {
-    public Team(int teamNum)
+    public Team(int teamNum) throws IOException
     {
-        Scanner sc = new Scanner("Teams.csv");
-        sc.useDelimiter(",");
+        Scanner sc = new Scanner(new File("Teams.csv"));
+        sc.useDelimiter(",|\n");
         while(sc.hasNextLine())
         {
-            if(sc.next().equals(teamNum))
+            if(sc.next().equals(Integer.toString(teamNum)))
             {
                 NAME = sc.next();
                 break;
@@ -36,6 +38,6 @@ public class Team
 
     public double defensiveScore()
     {
-        return 0
+        return 0;
     }
 }
