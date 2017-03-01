@@ -1,29 +1,41 @@
 package com.company;
 
-import java.io.*;
 import java.util.Scanner;
 
 public class Team
 {
     public Team(int teamNum)
     {
-        Scanner sc = new Scanner("RegularSeasonDetailedResults.csv");
-        sc.nextLine();
+        Scanner sc = new Scanner("Teams.csv");
+        sc.useDelimiter(",");
         while(sc.hasNextLine())
         {
-            sc.useDelimiter(",");
-            
+            if(sc.next().equals(teamNum))
+            {
+                NAME = sc.next();
+                break;
+            }
         }
     }
 
-    public final String NAME;
-    public final double SEASON_WINS; //avg
-    public final double POST_SEASON_WINS; //avg
-    public final double POINTS_PER_GAME;
-    public final double THREE_POINT_PERCENT;
-    public final double FIELD_GOAL_PERCENT;
-    public final double FREE_THROW_PERCENT;
-    public final double TURN_OVER_AVERAGE; //avg turnovers per game
-    public final double STEALS_AVERAGE; //avg steals per game
-    public final double BLOCKS_AVERAGE; //avg blocks per game
+    public String NAME;
+    public double SEASON_WINS; //avg
+    public double POST_SEASON_WINS; //avg
+    public double POINTS_PER_GAME;
+    public double THREE_POINT_PERCENT;
+    public double FIELD_GOAL_PERCENT;
+    public double FREE_THROW_PERCENT;
+    public double TURN_OVER_AVERAGE; //avg turnovers per game
+    public double STEALS_AVERAGE; //avg steals per game
+    public double BLOCKS_AVERAGE; //avg blocks per game
+
+    public double offensiveScore()
+    {
+        return 0;
+    }
+
+    public double defensiveScore()
+    {
+        return 0
+    }
 }
