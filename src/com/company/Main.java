@@ -1,6 +1,7 @@
 package com.company;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main
 {
@@ -11,9 +12,18 @@ public class Main
         {
             teams[i - 1101] = new Team(i);
         }
-        for(int i = 0; i < teams.length; i++)
+        Scanner sc1 = new Scanner(new File("RegularSeasonDetailedResultsE.csv"));
+        sc1.nextLine();
+        sc1.useDelimiter(",");
+        while(sc1.hasNextLine())
         {
-            System.out.println(teams[i].NAME);
+            int year = sc1.nextInt();
+            int teamNum = sc1.nextInt() - 1101;
+            double multiplier = 1 - ((2016 - year) * .05);
+            teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
+            teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+
         }
     }
 }
