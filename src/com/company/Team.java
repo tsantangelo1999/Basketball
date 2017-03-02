@@ -28,8 +28,8 @@ public class Team
     {
         return regularSeasonGames + postSeasonGames;
     }
-    public double seasonWins; //avg
-    public double postSeasonWins; //avg
+    public int regularSeasonWins; //avg
+    public int postSeasonWins; //avg
     
     public double totalPoints;
     
@@ -48,9 +48,16 @@ public class Team
     
     public double totalBlocks;
     
+    public double totalPersonalFouls;
+    
+    public double getSeasonWinrate()
+    {
+        return regularSeasonWins / regularSeasonGames;
+    }
+    
     public double getPointsPerGame()
     {
-        return totalPoints / totalGames();
+        return totalPoints / regularSeasonGames;
     }
     
     public double getThreePointPercent()
@@ -70,17 +77,88 @@ public class Team
     
     public double getTurnoversPerGame()
     {
-        return totalTurnovers / totalGames();
+        return totalTurnovers / regularSeasonGames;
     }
     
     public double getStealsPerGame()
     {
-        return totalSteals / totalGames();
+        return totalSteals / regularSeasonGames;
     }
     
     public double getBlocksPerGame()
     {
-        return totalBlocks / totalGames();
+        return totalBlocks / regularSeasonGames;
+    }
+    
+    public double getPersonalFoulsPerGame()
+    {
+        return totalPersonalFouls / regularSeasonGames;
+    }
+
+
+
+    public double tourneyTotalPoints;
+
+    public double tourneyMadeThreePointers;
+    public double tourneyTotalThreePointers;
+
+    public double tourneyMadeFieldGoals;
+    public double tourneyTotalFieldGoals;
+
+    public double tourneyMadeFreeThrows;
+    public double tourneyTotalFreeThrows;
+
+    public double tourneyTotalTurnovers;
+
+    public double tourneyTotalSteals;
+
+    public double tourneyTotalBlocks;
+
+    public double tourneyTotalPersonalFouls;
+
+    public double tourneyGetPostSeasonWinrate()
+    {
+        return postSeasonWins / postSeasonGames;
+    }
+
+    public double tourneyGetPointsPerGame()
+    {
+        return tourneyTotalPoints / postSeasonGames;
+    }
+
+    public double tourneyGetThreePointPercent()
+    {
+        return tourneyMadeThreePointers / tourneyTotalThreePointers;
+    }
+
+    public double tourneyGetFieldGoalPercent()
+    {
+        return tourneyMadeFieldGoals / tourneyTotalFieldGoals;
+    }
+
+    public double tourneyGetFreeThrowPercent()
+    {
+        return tourneyMadeFreeThrows / tourneyTotalFreeThrows;
+    }
+
+    public double tourneyGetTurnoversPerGame()
+    {
+        return tourneyTotalTurnovers / postSeasonGames;
+    }
+
+    public double tourneyGetStealsPerGame()
+    {
+        return tourneyTotalSteals / postSeasonGames;
+    }
+
+    public double tourneyGetBlocksPerGame()
+    {
+        return tourneyTotalBlocks / postSeasonGames;
+    }
+
+    public double tourneyGetPersonalFoulsPerGame()
+    {
+        return tourneyTotalPersonalFouls / postSeasonGames;
     }
 
     public double offensiveScore()

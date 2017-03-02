@@ -14,7 +14,7 @@ public class Main
         }
         Scanner sc1 = new Scanner(new File("RegularSeasonDetailedResultsE.csv"));
         sc1.nextLine();
-        sc1.useDelimiter(",");
+        sc1.useDelimiter(",|\n");
         while(sc1.hasNextLine())
         {
             int year = sc1.nextInt();
@@ -23,6 +23,36 @@ public class Main
             teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
             teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
             teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalTurnovers += sc1.nextInt() * multiplier;
+            teams[teamNum].totalSteals += sc1.nextInt() * multiplier;
+            teams[teamNum].totalBlocks += sc1.nextInt() * multiplier;
+            teams[teamNum].totalPersonalFouls += sc1.nextInt() * multiplier;
+            teams[teamNum].regularSeasonGames += multiplier;
+            teams[teamNum].regularSeasonWins += multiplier;
+            teamNum = sc1.nextInt() - 1101;
+            teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
+            teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalTurnovers += sc1.nextInt() * multiplier;
+            teams[teamNum].totalSteals += sc1.nextInt() * multiplier;
+            teams[teamNum].totalBlocks += sc1.nextInt() * multiplier;
+            teams[teamNum].totalPersonalFouls += sc1.nextInt() * multiplier;
+            teams[teamNum].regularSeasonGames += multiplier;
+        }
+        sc1.close();
+        Scanner sc2 = new Scanner(new File("TourneyDetailedResultsE.csv"));
+        sc2.nextLine();
+        sc2.useDelimiter(",|\n");
+        while(sc2.hasNextLine())
+        {
 
         }
     }
