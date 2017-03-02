@@ -14,7 +14,7 @@ public class Main
         }
         Scanner sc1 = new Scanner(new File("RegularSeasonDetailedResultsE.csv"));
         sc1.nextLine();
-        sc1.useDelimiter(",|\n");
+        sc1.useDelimiter(",|\n|\\s+");
         while(sc1.hasNextLine())
         {
             int year = sc1.nextInt();
@@ -22,7 +22,7 @@ public class Main
             double multiplier = 1 - ((2016 - year) * .05);
             teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
             teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFieldGoals += sc1.nextInt() * multiplier;
             teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
             teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
             teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
@@ -36,7 +36,7 @@ public class Main
             teamNum = sc1.nextInt() - 1101;
             teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
             teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum].totalFieldGoals += sc1.nextInt() * multiplier;
             teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
             teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
             teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
@@ -50,10 +50,38 @@ public class Main
         sc1.close();
         Scanner sc2 = new Scanner(new File("TourneyDetailedResultsE.csv"));
         sc2.nextLine();
-        sc2.useDelimiter(",|\n");
+        sc2.useDelimiter(",|\n|\\s+");
         while(sc2.hasNextLine())
         {
-
+            int year = sc2.nextInt();
+            int teamNum = sc2.nextInt() - 1101;
+            double multiplier = 1 - ((2016 - year) * .05);
+            teams[teamNum].tourneyTotalPoints += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalSteals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalBlocks += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
+            teams[teamNum].postSeasonGames += multiplier;
+            teams[teamNum].postSeasonWins += multiplier;
+            teamNum = sc2.nextInt() - 1101;
+            teams[teamNum].tourneyTotalPoints += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalSteals += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalBlocks += sc2.nextInt() * multiplier;
+            teams[teamNum].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
+            teams[teamNum].postSeasonGames += multiplier;
         }
     }
 }

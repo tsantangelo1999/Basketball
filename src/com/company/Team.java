@@ -22,8 +22,8 @@ public class Team
 
     public String name;
 
-    public int regularSeasonGames;
-    public int postSeasonGames;
+    public double regularSeasonGames;
+    public double postSeasonGames;
     public double totalGames()
     {
         return regularSeasonGames + postSeasonGames;
