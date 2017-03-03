@@ -116,50 +116,122 @@ public class Team
 
     public double tourneyTotalPersonalFouls;
 
-    public double tourneyGetPostSeasonWinrate()
+    public double getPostSeasonWinrate()
     {
-        return postSeasonWins / postSeasonGames;
+        try
+        {
+            return postSeasonWins / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getSeasonWinrate();
+        }
     }
 
     public double tourneyGetPointsPerGame()
     {
-        return tourneyTotalPoints / postSeasonGames;
+        try
+        {
+            return tourneyTotalPoints / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getPointsPerGame();
+        }
     }
 
     public double tourneyGetThreePointPercent()
     {
-        return tourneyMadeThreePointers / tourneyTotalThreePointers;
+        try
+        {
+            return tourneyMadeThreePointers / tourneyTotalThreePointers;
+        }
+        catch(ArithmeticException e)
+        {
+            return getThreePointPercent();
+        }
     }
 
     public double tourneyGetFieldGoalPercent()
     {
-        return tourneyMadeFieldGoals / tourneyTotalFieldGoals;
+        try
+        {
+            return tourneyMadeFieldGoals / tourneyTotalFieldGoals;
+        }
+        catch(ArithmeticException e)
+        {
+            return getFieldGoalPercent();
+        }
     }
 
     public double tourneyGetFreeThrowPercent()
     {
-        return tourneyMadeFreeThrows / tourneyTotalFreeThrows;
+        try
+        {
+            return tourneyMadeFreeThrows / tourneyTotalFreeThrows;
+        }
+        catch(ArithmeticException e)
+        {
+            return getFreeThrowPercent();
+        }
     }
 
     public double tourneyGetTurnoversPerGame()
     {
-        return tourneyTotalTurnovers / postSeasonGames;
+        try
+        {
+            return tourneyTotalTurnovers / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getTurnoversPerGame();
+        }
     }
 
     public double tourneyGetStealsPerGame()
     {
-        return tourneyTotalSteals / postSeasonGames;
+        try
+        {
+            return tourneyTotalSteals / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getStealsPerGame();
+        }
     }
 
     public double tourneyGetBlocksPerGame()
     {
-        return tourneyTotalBlocks / postSeasonGames;
+        try
+        {
+            return tourneyTotalBlocks / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getBlocksPerGame();
+        }
     }
 
     public double tourneyGetPersonalFoulsPerGame()
     {
-        return tourneyTotalPersonalFouls / postSeasonGames;
+        try
+        {
+            return tourneyTotalPersonalFouls / postSeasonGames;
+        }
+        catch(ArithmeticException e)
+        {
+            return getPersonalFoulsPerGame();
+        }
     }
+
+
+
+    public static double weight(double r, double t)
+    {
+        return r * .4 + t * .6;
+    }
+
+
 
     public double offensiveScore()
     {

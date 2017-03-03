@@ -83,5 +83,23 @@ public class Main
             teams[teamNum].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
             teams[teamNum].postSeasonGames += multiplier;
         }
+        sc2.close();
+        FileWriter fw = new FileWriter("TeamStats.csv");
+        PrintWriter pw = new PrintWriter(fw);
+        for(int i = 0; i < teams.length; i++)
+        {
+            pw.println(teams[i].name + ","
+                    + Team.weight(teams[i].getSeasonWinrate(), teams[i].getPostSeasonWinrate()) + ","
+                    + Team.weight(teams[i].getPointsPerGame(), teams[i].tourneyGetPointsPerGame()) + ","
+                    + Team.weight(teams[i].getThreePointPercent(), teams[i].tourneyGetThreePointPercent()) + ","
+                    + Team.weight(teams[i].getFieldGoalPercent(), teams[i].tourneyGetFieldGoalPercent()) + ","
+                    + Team.weight(teams[i].getFreeThrowPercent(), teams[i].tourneyGetFreeThrowPercent()) + ","
+                    + Team.weight(teams[i].getTurnoversPerGame(), teams[i].tourneyGetTurnoversPerGame()) + ","
+                    + Team.weight(teams[i].getStealsPerGame(), teams[i].tourneyGetStealsPerGame()) + ","
+                    + Team.weight(teams[i].getBlocksPerGame(), teams[i].tourneyGetBlocksPerGame()) + ","
+                    + Team.weight(teams[i].getPersonalFoulsPerGame(), teams[i].tourneyGetPersonalFoulsPerGame()));
+        }
+        pw.close();
+        fw.close();
     }
 }
