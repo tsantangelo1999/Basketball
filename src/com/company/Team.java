@@ -15,6 +15,7 @@ public class Team
             if(sc.next().equals(Integer.toString(teamNum)))
             {
                 name = sc.next();
+                name = name.substring(0,name.length() - 1);
                 break;
             }
         }
@@ -118,11 +119,11 @@ public class Team
 
     public double getPostSeasonWinrate()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return postSeasonWins / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getSeasonWinrate();
         }
@@ -130,11 +131,11 @@ public class Team
 
     public double tourneyGetPointsPerGame()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyTotalPoints / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getPointsPerGame();
         }
@@ -142,11 +143,11 @@ public class Team
 
     public double tourneyGetThreePointPercent()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyMadeThreePointers / tourneyTotalThreePointers;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getThreePointPercent();
         }
@@ -154,11 +155,11 @@ public class Team
 
     public double tourneyGetFieldGoalPercent()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyMadeFieldGoals / tourneyTotalFieldGoals;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getFieldGoalPercent();
         }
@@ -166,11 +167,11 @@ public class Team
 
     public double tourneyGetFreeThrowPercent()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyMadeFreeThrows / tourneyTotalFreeThrows;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getFreeThrowPercent();
         }
@@ -178,11 +179,11 @@ public class Team
 
     public double tourneyGetTurnoversPerGame()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyTotalTurnovers / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getTurnoversPerGame();
         }
@@ -190,11 +191,11 @@ public class Team
 
     public double tourneyGetStealsPerGame()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyTotalSteals / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getStealsPerGame();
         }
@@ -202,11 +203,11 @@ public class Team
 
     public double tourneyGetBlocksPerGame()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyTotalBlocks / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getBlocksPerGame();
         }
@@ -214,11 +215,11 @@ public class Team
 
     public double tourneyGetPersonalFoulsPerGame()
     {
-        try
+        if(postSeasonGames > 0)
         {
             return tourneyTotalPersonalFouls / postSeasonGames;
         }
-        catch(ArithmeticException e)
+        else
         {
             return getPersonalFoulsPerGame();
         }

@@ -86,6 +86,7 @@ public class Main
         sc2.close();
         FileWriter fw = new FileWriter("TeamStats.csv");
         PrintWriter pw = new PrintWriter(fw);
+        pw.println("name,winrate,ppg,3p%,fg%,ft%,topg,spg,bpg,pfpg");
         for(int i = 0; i < teams.length; i++)
         {
             pw.println(teams[i].name + ","
