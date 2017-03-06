@@ -15,7 +15,7 @@ public class Team
             if(sc.next().equals(Integer.toString(teamNum)))
             {
                 name = sc.next();
-                name = name.substring(0,name.length() - 1);
+                name = name.substring(0, name.length());
                 break;
             }
         }
