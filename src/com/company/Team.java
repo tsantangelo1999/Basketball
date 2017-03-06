@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 
-public class Team
+public class Team// implements Comparable
 {
     public Team(int teamNum) throws IOException
     {
@@ -29,8 +29,8 @@ public class Team
     {
         return regularSeasonGames + postSeasonGames;
     }
-    public int regularSeasonWins; //avg
-    public int postSeasonWins; //avg
+    public double regularSeasonWins; //avg
+    public double postSeasonWins; //avg
     
     public double totalPoints;
     public double totalPointsAgainst;
@@ -248,7 +248,7 @@ public class Team
 
     public static double weight(double r, double t)
     {
-        return r * .4 + t * .6;
+        return r * .45 + t * .55;
     }
 
 
@@ -261,5 +261,12 @@ public class Team
     public double defensiveScore()
     {
         return 0;
+    }
+
+
+    //winrate, points per game, points against per game, three point%, field goal%, free throw %, turnovers per game, steals per game, blocks per game, personal fouls per game
+    //public static int compareTo(Team a, Team b)
+    {
+
     }
 }
