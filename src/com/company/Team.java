@@ -33,6 +33,7 @@ public class Team
     public int postSeasonWins; //avg
     
     public double totalPoints;
+    public double totalPointsAgainst;
     
     public double madeThreePointers;
     public double totalThreePointers;
@@ -59,6 +60,11 @@ public class Team
     public double getPointsPerGame()
     {
         return totalPoints / regularSeasonGames;
+    }
+
+    public double getPointsAgainstPerGame()
+    {
+        return totalPointsAgainst / regularSeasonGames;
     }
     
     public double getThreePointPercent()
@@ -99,6 +105,7 @@ public class Team
 
 
     public double tourneyTotalPoints;
+    public double tourneyTotalPointsAgainst;
 
     public double tourneyMadeThreePointers;
     public double tourneyTotalThreePointers;
@@ -138,6 +145,18 @@ public class Team
         else
         {
             return getPointsPerGame();
+        }
+    }
+
+    public double tourneyGetPointsAgainstPerGame()
+    {
+        if(postSeasonGames > 0)
+        {
+            return tourneyTotalPointsAgainst / postSeasonGames;
+        }
+        else
+        {
+            return getPointsAgainstPerGame();
         }
     }
 

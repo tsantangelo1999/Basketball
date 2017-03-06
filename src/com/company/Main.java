@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.*;
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 public class Main
 {
@@ -18,34 +19,39 @@ public class Main
         while(sc1.hasNextLine())
         {
             int year = sc1.nextInt();
-            int teamNum = sc1.nextInt() - 1101;
+            int teamNum1 = sc1.nextInt() - 1101;
+            int teamNum2 = sc1.nextInt() - 1101;
             double multiplier = 1 - ((2016 - year) * .05);
-            teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
-            teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
-            teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
-            teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
-            teams[teamNum].totalTurnovers += sc1.nextInt() * multiplier;
-            teams[teamNum].totalSteals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalBlocks += sc1.nextInt() * multiplier;
-            teams[teamNum].totalPersonalFouls += sc1.nextInt() * multiplier;
-            teams[teamNum].regularSeasonGames += multiplier;
-            teams[teamNum].regularSeasonWins += multiplier;
-            teamNum = sc1.nextInt() - 1101;
-            teams[teamNum].totalPoints += sc1.nextInt() * multiplier;
-            teams[teamNum].madeFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFieldGoals += sc1.nextInt() * multiplier;
-            teams[teamNum].madeThreePointers += sc1.nextInt() * multiplier;
-            teams[teamNum].totalThreePointers += sc1.nextInt() * multiplier;
-            teams[teamNum].madeFreeThrows += sc1.nextInt() * multiplier;
-            teams[teamNum].totalFreeThrows += sc1.nextInt() * multiplier;
-            teams[teamNum].totalTurnovers += sc1.nextInt() * multiplier;
-            teams[teamNum].totalSteals += sc1.nextInt() * multiplier;
-            teams[teamNum].totalBlocks += sc1.nextInt() * multiplier;
-            teams[teamNum].totalPersonalFouls += sc1.nextInt() * multiplier;
-            teams[teamNum].regularSeasonGames += multiplier;
+            int i = sc1.nextInt();
+            teams[teamNum1].totalPoints += i * multiplier;
+            teams[teamNum2].totalPointsAgainst += i * multiplier;
+            teams[teamNum1].madeFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum1].madeThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum1].madeFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalTurnovers += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalSteals += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalBlocks += sc1.nextInt() * multiplier;
+            teams[teamNum1].totalPersonalFouls += sc1.nextInt() * multiplier;
+            teams[teamNum1].regularSeasonGames += multiplier;
+            teams[teamNum1].regularSeasonWins += multiplier;
+
+            i = sc1.nextInt();
+            teams[teamNum2].totalPoints += i * multiplier;
+            teams[teamNum1].totalPointsAgainst += i * multiplier;
+            teams[teamNum2].madeFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalFieldGoals += sc1.nextInt() * multiplier;
+            teams[teamNum2].madeThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalThreePointers += sc1.nextInt() * multiplier;
+            teams[teamNum2].madeFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalFreeThrows += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalTurnovers += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalSteals += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalBlocks += sc1.nextInt() * multiplier;
+            teams[teamNum2].totalPersonalFouls += sc1.nextInt() * multiplier;
+            teams[teamNum2].regularSeasonGames += multiplier;
         }
         sc1.close();
         Scanner sc2 = new Scanner(new File("TourneyDetailedResultsE.csv"));
@@ -54,51 +60,60 @@ public class Main
         while(sc2.hasNextLine())
         {
             int year = sc2.nextInt();
-            int teamNum = sc2.nextInt() - 1101;
+            int teamNum1 = sc2.nextInt() - 1101;
+            int teamNum2 = sc2.nextInt() - 1101;
             double multiplier = 1 - ((2016 - year) * .05);
-            teams[teamNum].tourneyTotalPoints += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalSteals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalBlocks += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
-            teams[teamNum].postSeasonGames += multiplier;
-            teams[teamNum].postSeasonWins += multiplier;
-            teamNum = sc2.nextInt() - 1101;
-            teams[teamNum].tourneyTotalPoints += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalSteals += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalBlocks += sc2.nextInt() * multiplier;
-            teams[teamNum].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
-            teams[teamNum].postSeasonGames += multiplier;
+            int i = sc2.nextInt();
+            teams[teamNum1].tourneyTotalPoints += i * multiplier;
+            teams[teamNum2].tourneyTotalPointsAgainst += i * multiplier;
+            teams[teamNum1].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalSteals += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalBlocks += sc2.nextInt() * multiplier;
+            teams[teamNum1].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
+            teams[teamNum1].postSeasonGames += multiplier;
+            teams[teamNum1].postSeasonWins += multiplier;
+
+            i = sc2.nextInt();
+            teams[teamNum2].tourneyTotalPoints += i * multiplier;
+            teams[teamNum1].tourneyTotalPointsAgainst += i * multiplier;
+            teams[teamNum2].tourneyMadeFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalFieldGoals += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyMadeThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalThreePointers += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyMadeFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalFreeThrows += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalTurnovers += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalSteals += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalBlocks += sc2.nextInt() * multiplier;
+            teams[teamNum2].tourneyTotalPersonalFouls += sc2.nextInt() * multiplier;
+            teams[teamNum2].postSeasonGames += multiplier;
         }
         sc2.close();
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
         FileWriter fw = new FileWriter("TeamStats.csv");
         PrintWriter pw = new PrintWriter(fw);
-        pw.println("name,winrate,ppg,3p%,fg%,ft%,topg,spg,bpg,pfpg");
+        pw.println("name,winrate,ppg,papg,3p%,fg%,ft%,topg,spg,bpg,pfpg");
         for(int i = 0; i < teams.length; i++)
         {
             pw.println(teams[i].name + ","
-                    + Team.weight(teams[i].getSeasonWinrate(), teams[i].getPostSeasonWinrate()) + ","
-                    + Team.weight(teams[i].getPointsPerGame(), teams[i].tourneyGetPointsPerGame()) + ","
-                    + Team.weight(teams[i].getThreePointPercent(), teams[i].tourneyGetThreePointPercent()) + ","
-                    + Team.weight(teams[i].getFieldGoalPercent(), teams[i].tourneyGetFieldGoalPercent()) + ","
-                    + Team.weight(teams[i].getFreeThrowPercent(), teams[i].tourneyGetFreeThrowPercent()) + ","
-                    + Team.weight(teams[i].getTurnoversPerGame(), teams[i].tourneyGetTurnoversPerGame()) + ","
-                    + Team.weight(teams[i].getStealsPerGame(), teams[i].tourneyGetStealsPerGame()) + ","
-                    + Team.weight(teams[i].getBlocksPerGame(), teams[i].tourneyGetBlocksPerGame()) + ","
-                    + Team.weight(teams[i].getPersonalFoulsPerGame(), teams[i].tourneyGetPersonalFoulsPerGame()));
+                    + nf.format(Team.weight(teams[i].getSeasonWinrate(), teams[i].getPostSeasonWinrate())) + ","
+                    + nf.format(Team.weight(teams[i].getPointsPerGame(), teams[i].tourneyGetPointsPerGame())) + ","
+                    + nf.format(Team.weight(teams[i].getPointsAgainstPerGame(), teams[i].tourneyGetPointsAgainstPerGame())) + ","
+                    + nf.format(Team.weight(teams[i].getThreePointPercent(), teams[i].tourneyGetThreePointPercent())) + ","
+                    + nf.format(Team.weight(teams[i].getFieldGoalPercent(), teams[i].tourneyGetFieldGoalPercent())) + ","
+                    + nf.format(Team.weight(teams[i].getFreeThrowPercent(), teams[i].tourneyGetFreeThrowPercent())) + ","
+                    + nf.format(Team.weight(teams[i].getTurnoversPerGame(), teams[i].tourneyGetTurnoversPerGame())) + ","
+                    + nf.format(Team.weight(teams[i].getStealsPerGame(), teams[i].tourneyGetStealsPerGame())) + ","
+                    + nf.format(Team.weight(teams[i].getBlocksPerGame(), teams[i].tourneyGetBlocksPerGame())) + ","
+                    + nf.format(Team.weight(teams[i].getPersonalFoulsPerGame(), teams[i].tourneyGetPersonalFoulsPerGame())));
         }
         pw.close();
         fw.close();
