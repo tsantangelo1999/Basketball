@@ -102,51 +102,7 @@ public class Team// implements Comparable
         return totalPersonalFouls / regularSeasonGames;
     }
 
-    public static double compareTo(Team a, Team b)
-    {
-        int points[] = new int[2];
-        if (a.getSeasonWinrate() > b.getSeasonWinrate())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getPointsPerGame() > b.getPointsPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getPointsAgainstPerGame() < b.getPointsAgainstPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getThreePointPercent() > b.getThreePointPercent())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getStealsPerGame() > b.getStealsPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getBlocksPerGame() > b.getBlocksPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        if (a.getPersonalFoulsPerGame() > b.getPersonalFoulsPerGame())
-            points[0]++;
-        else
-        points[1]++;
-        return points[0]/10;
-    }
+
 
     public double tourneyTotalPoints;
     public double tourneyTotalPointsAgainst;
@@ -307,4 +263,50 @@ public class Team// implements Comparable
         return 0;
     }
 
+
+    public static double compareTo(Team a, Team b)
+    {
+        int points[] = new int[2];
+        if (a.getSeasonWinrate() > b.getSeasonWinrate())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getPointsPerGame() > b.getPointsPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getPointsAgainstPerGame() < b.getPointsAgainstPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getThreePointPercent() > b.getThreePointPercent())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getStealsPerGame() > b.getStealsPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getBlocksPerGame() > b.getBlocksPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        if (a.getPersonalFoulsPerGame() > b.getPersonalFoulsPerGame())
+            points[0]++;
+        else
+            points[1]++;
+        return points[0]/10;
+    }
 }

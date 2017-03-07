@@ -104,7 +104,7 @@ public class Main
         for(int i = 0; i < teams.length; i++)
         {
             pw.println(teams[i].name + ","
-                    + nf.format(Team.weight(teams[i].getSeasonWinrate(), teams[i].getPostSeasonWinrate())) + ","
+                    + nf.format(teams[i].getSeasonWinrate()) + ","
                     + nf.format(Team.weight(teams[i].getPointsPerGame(), teams[i].tourneyGetPointsPerGame())) + ","
                     + nf.format(Team.weight(teams[i].getPointsAgainstPerGame(), teams[i].tourneyGetPointsAgainstPerGame())) + ","
                     + nf.format(Team.weight(teams[i].getThreePointPercent(), teams[i].tourneyGetThreePointPercent())) + ","
