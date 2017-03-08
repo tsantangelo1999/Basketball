@@ -8,10 +8,7 @@ public class Bracket
     File seeds;
     Team[] teams;
 
-    public Team[] w = new Team[16];
-    public Team[] x = new Team[16];
-    public Team[] y = new Team[16];
-    public Team[] z = new Team[16];
+    public Team[][] bracket = new Team[4][16];
 
     public Bracket(File f, Team[] t)
     {
@@ -34,9 +31,18 @@ public class Bracket
                 double c = Team.compareTo(teams[team - 1101], teams[team2 - 1101]);
                 if(c > 0.5)
                 {
-
+                    bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))] = teams[team - 1101];
+                }
+                else
+                {
+                    bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))] = teams[team2 - 1101];
                 }
             }
+            else
+            {
+                bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))] = teams[team - 1101];
+            }
         }
+
     }
 }
