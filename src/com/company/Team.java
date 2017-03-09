@@ -295,7 +295,7 @@ public class Team// implements Comparable
 
     public static double weight(double r, double t)
     {
-        return r * .45 + t * .55;
+        return r * .5 + t * .5;
     }
 
 
@@ -313,47 +313,35 @@ public class Team// implements Comparable
 
     public static double compareTo(Team a, Team b)
     {
-        double points[] = new double[2];
-        if (a.getSeasonWinrate() > b.getSeasonWinrate())
-            points[0] += 3;
-        else
-            points[1] += 3;
-        if (a.getPointsPerGame() > b.getPointsPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getPointsAgainstPerGame() < b.getPointsAgainstPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getThreePointPercent() > b.getThreePointPercent())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getStealsPerGame() > b.getStealsPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getBlocksPerGame() > b.getBlocksPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
-            points[0]++;
-        else
-            points[1]++;
-        return points[0]/12;
+        double points = 0;
+        if (a.getSeasonWinrate() - b.getSeasonWinrate() > -.05 || a.getSeasonWinrate() - b.getSeasonWinrate() < .05)
+            points += .5;
+        else if (a.getSeasonWinrate() > b.getSeasonWinrate())
+            points += 1;
+        if (a.getSeasonPointsPerGame() - b.getSeasonPointsPerGame() > -4 || a.getSeasonPointsPerGame() - b.getSeasonPointsPerGame() < 4)
+            points += .5;
+        else if (a.getSeasonPointsPerGame() > b.getSeasonPointsPerGame())
+            points++;
+        if (a.getSeasonPointsAgainstPerGame() - b.getSeasonPointsAgainstPerGame() > -4 || a.getSeasonPointsAgainstPerGame() - b.getSeasonPointsAgainstPerGame() < 4)
+            points += .5;
+        else if (a.getSeasonPointsAgainstPerGame() < b.getSeasonPointsAgainstPerGame())
+            points++;
+        if (a.getSeasonThreePointPercent() > b.getSeasonThreePointPercent())
+            points++;
+        if (a.getSeasonFieldGoalPercent() > b.getSeasonFieldGoalPercent())
+            points++;
+        if (a.getSeasonFreeThrowPercent() > b.getSeasonFreeThrowPercent())
+            points++;
+        if (a.getSeasonTurnoversPerGame() < b.getSeasonTurnoversPerGame())
+            points++;
+        if (a.getSeasonStealsPerGame() > b.getSeasonStealsPerGame())
+            points++;
+        if (a.getSeasonBlocksPerGame() > b.getSeasonBlocksPerGame())
+            points++;
+        if (a.getSeasonPersonalFoulsPerGame() < b.getSeasonPersonalFoulsPerGame())
+            points++;
+        if (a.getSeasonFreeThrowPercent() * b.getSeasonPersonalFoulsPerGame() > b.getSeasonFreeThrowPercent() * a.getSeasonPersonalFoulsPerGame())
+            points += .5;
+        return points/10.5;
     }
 }
