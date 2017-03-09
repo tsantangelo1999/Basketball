@@ -318,29 +318,29 @@ public class Team// implements Comparable
             points += .5;
         else if (a.getSeasonWinrate() > b.getSeasonWinrate())
             points += 1;
-        if (a.getSeasonPointsPerGame() - b.getSeasonPointsPerGame() > -4 || a.getSeasonPointsPerGame() - b.getSeasonPointsPerGame() < 4)
+        if (a.getPointsPerGame() - b.getPointsPerGame() > -4 || a.getPointsPerGame() - b.getPointsPerGame() < 4)
             points += .5;
-        else if (a.getSeasonPointsPerGame() > b.getSeasonPointsPerGame())
+        else if (a.getPointsPerGame() > b.getPointsPerGame())
             points++;
-        if (a.getSeasonPointsAgainstPerGame() - b.getSeasonPointsAgainstPerGame() > -4 || a.getSeasonPointsAgainstPerGame() - b.getSeasonPointsAgainstPerGame() < 4)
+        if (a.getPointsAgainstPerGame() - b.getPointsAgainstPerGame() > -4 || a.getPointsAgainstPerGame() - b.getPointsAgainstPerGame() < 4)
             points += .5;
-        else if (a.getSeasonPointsAgainstPerGame() < b.getSeasonPointsAgainstPerGame())
+        else if (a.getPointsAgainstPerGame() < b.getPointsAgainstPerGame())
             points++;
-        if (a.getSeasonThreePointPercent() > b.getSeasonThreePointPercent())
+        if (a.getThreePointPercent() > b.getThreePointPercent())
             points++;
-        if (a.getSeasonFieldGoalPercent() > b.getSeasonFieldGoalPercent())
+        if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
             points++;
-        if (a.getSeasonFreeThrowPercent() > b.getSeasonFreeThrowPercent())
+        if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
             points++;
-        if (a.getSeasonTurnoversPerGame() < b.getSeasonTurnoversPerGame())
+        if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
             points++;
-        if (a.getSeasonStealsPerGame() > b.getSeasonStealsPerGame())
+        if (a.getStealsPerGame() > b.getStealsPerGame())
             points++;
-        if (a.getSeasonBlocksPerGame() > b.getSeasonBlocksPerGame())
+        if (a.getBlocksPerGame() > b.getBlocksPerGame())
             points++;
-        if (a.getSeasonPersonalFoulsPerGame() < b.getSeasonPersonalFoulsPerGame())
+        if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
             points++;
-        if (a.getSeasonFreeThrowPercent() * b.getSeasonPersonalFoulsPerGame() > b.getSeasonFreeThrowPercent() * a.getSeasonPersonalFoulsPerGame())
+        if (a.getFreeThrowPercent() * b.getPersonalFoulsPerGame() > b.getFreeThrowPercent() * a.getPersonalFoulsPerGame())
             points += .5;
         return points/10.5;
     }
