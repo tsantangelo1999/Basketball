@@ -105,18 +105,19 @@ public class Main
         {
             pw.println(teams[i].name + ","
                     + nf.format(teams[i].getSeasonWinrate()) + ","
-                    + nf.format(Team.weight(teams[i].getPointsPerGame(), teams[i].tourneyGetPointsPerGame())) + ","
-                    + nf.format(Team.weight(teams[i].getPointsAgainstPerGame(), teams[i].tourneyGetPointsAgainstPerGame())) + ","
-                    + nf.format(Team.weight(teams[i].getThreePointPercent(), teams[i].tourneyGetThreePointPercent())) + ","
-                    + nf.format(Team.weight(teams[i].getFieldGoalPercent(), teams[i].tourneyGetFieldGoalPercent())) + ","
-                    + nf.format(Team.weight(teams[i].getFreeThrowPercent(), teams[i].tourneyGetFreeThrowPercent())) + ","
-                    + nf.format(Team.weight(teams[i].getTurnoversPerGame(), teams[i].tourneyGetTurnoversPerGame())) + ","
-                    + nf.format(Team.weight(teams[i].getStealsPerGame(), teams[i].tourneyGetStealsPerGame())) + ","
-                    + nf.format(Team.weight(teams[i].getBlocksPerGame(), teams[i].tourneyGetBlocksPerGame())) + ","
-                    + nf.format(Team.weight(teams[i].getPersonalFoulsPerGame(), teams[i].tourneyGetPersonalFoulsPerGame())));
+                    + nf.format(teams[i].getPointsPerGame()) + ","
+                    + nf.format(teams[i].getPointsAgainstPerGame()) + ","
+                    + nf.format(teams[i].getThreePointPercent()) + ","
+                    + nf.format(teams[i].getFieldGoalPercent()) + ","
+                    + nf.format(teams[i].getFreeThrowPercent()) + ","
+                    + nf.format(teams[i].getTurnoversPerGame()) + ","
+                    + nf.format(teams[i].getStealsPerGame()) + ","
+                    + nf.format(teams[i].getBlocksPerGame()) + ","
+                    + nf.format(teams[i].getPersonalFoulsPerGame());
         }
         pw.close();
         fw.close();
-
+        Bracket bracket = new Bracket(new File("TourneySeeds.csv"), teams);
+        bracket.run();
     }
 }

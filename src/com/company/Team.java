@@ -51,55 +51,102 @@ public class Team// implements Comparable
     public double totalBlocks;
     
     public double totalPersonalFouls;
-    
+
     public double getSeasonWinrate()
     {
         return regularSeasonWins / regularSeasonGames;
     }
-    
-    public double getPointsPerGame()
+
+    public double getSeasonPointsPerGame()
     {
         return totalPoints / regularSeasonGames;
     }
 
-    public double getPointsAgainstPerGame()
+    public double getSeasonPointsAgainstPerGame()
     {
         return totalPointsAgainst / regularSeasonGames;
+    }
+
+    public double getSeasonThreePointPercent()
+    {
+        return madeThreePointers / totalThreePointers;
+    }
+
+    public double getSeasonFieldGoalPercent()
+    {
+        return madeFieldGoals / totalFieldGoals;
+    }
+
+    public double getSeasonFreeThrowPercent()
+    {
+        return madeFreeThrows / totalFreeThrows;
+    }
+
+    public double getSeasonTurnoversPerGame()
+    {
+        return totalTurnovers / regularSeasonGames;
+    }
+
+    public double getSeasonStealsPerGame()
+    {
+        return totalSteals / regularSeasonGames;
+    }
+
+    public double getSeasonBlocksPerGame()
+    {
+        return totalBlocks / regularSeasonGames;
+    }
+
+    public double getSeasonPersonalFoulsPerGame()
+    {
+        return totalPersonalFouls / regularSeasonGames;
+    }
+    
+    
+    
+    public double getPointsPerGame()
+    {
+        return weight(getSeasonPointsPerGame(), getTourneyPointsPerGame());
+    }
+
+    public double getPointsAgainstPerGame()
+    {
+        return weight(getSeasonPointsAgainstPerGame(), getTourneyPointsAgainstPerGame());
     }
     
     public double getThreePointPercent()
     {
-        return madeThreePointers / totalThreePointers;
+        return weight(getSeasonThreePointPercent(), getTourneyThreePointPercent());
     }
     
     public double getFieldGoalPercent()
     {
-        return madeFieldGoals / totalFieldGoals;
+        return weight(getSeasonFieldGoalPercent(), getTourneyFieldGoalPercent());
     }
     
     public double getFreeThrowPercent()
     {
-        return madeFreeThrows / totalFreeThrows;
+        return weight(getSeasonFreeThrowPercent(), getTourneyFreeThrowPercent());
     }
     
     public double getTurnoversPerGame()
     {
-        return totalTurnovers / regularSeasonGames;
+        return weight(getSeasonTurnoversPerGame(), getTourneyTurnoversPerGame());
     }
     
     public double getStealsPerGame()
     {
-        return totalSteals / regularSeasonGames;
+        return weight(getSeasonStealsPerGame(), getTourneyStealsPerGame());
     }
     
     public double getBlocksPerGame()
     {
-        return totalBlocks / regularSeasonGames;
+        return weight(getSeasonBlocksPerGame(), getTourneyBlocksPerGame());
     }
     
     public double getPersonalFoulsPerGame()
     {
-        return totalPersonalFouls / regularSeasonGames;
+        return weight(getSeasonPersonalFoulsPerGame(), getTourneyPersonalFoulsPerGame());
     }
 
 
@@ -136,7 +183,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetPointsPerGame()
+    public double getTourneyPointsPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -148,7 +195,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetPointsAgainstPerGame()
+    public double getTourneyPointsAgainstPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -160,7 +207,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetThreePointPercent()
+    public double getTourneyThreePointPercent()
     {
         if(postSeasonGames > 0)
         {
@@ -172,7 +219,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetFieldGoalPercent()
+    public double getTourneyFieldGoalPercent()
     {
         if(postSeasonGames > 0)
         {
@@ -184,7 +231,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetFreeThrowPercent()
+    public double getTourneyFreeThrowPercent()
     {
         if(postSeasonGames > 0)
         {
@@ -196,7 +243,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetTurnoversPerGame()
+    public double getTourneyTurnoversPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -208,7 +255,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetStealsPerGame()
+    public double getTourneyStealsPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -220,7 +267,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetBlocksPerGame()
+    public double getTourneyBlocksPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -232,7 +279,7 @@ public class Team// implements Comparable
         }
     }
 
-    public double tourneyGetPersonalFoulsPerGame()
+    public double getTourneyPersonalFoulsPerGame()
     {
         if(postSeasonGames > 0)
         {
@@ -263,14 +310,13 @@ public class Team// implements Comparable
         return 0;
     }
 
-
     public static double compareTo(Team a, Team b)
     {
-        int points[] = new int[2];
+        double points[] = new double[2];
         if (a.getSeasonWinrate() > b.getSeasonWinrate())
-            points[0]++;
+            points[0] += 3;
         else
-            points[1]++;
+            points[1] += 3;
         if (a.getPointsPerGame() > b.getPointsPerGame())
             points[0]++;
         else
@@ -303,10 +349,10 @@ public class Team// implements Comparable
             points[0]++;
         else
             points[1]++;
-        if (a.getPersonalFoulsPerGame() > b.getPersonalFoulsPerGame())
+        if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
             points[0]++;
         else
             points[1]++;
-        return points[0]/10;
+        return points[0]/12;
     }
 }
