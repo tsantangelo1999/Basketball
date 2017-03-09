@@ -20,7 +20,7 @@ public class Bracket
         Team[] newBrak = new Team[t.length/2];
         for(int i = 0; i < t.length/2; i++){
             newBrak[i] = (Team.compareTo(t[2*i],t[2*i+1]) > 0.5)?t[2*i]:t[2*i+1];
-            System.out.println(newBrak[i].name);
+            System.out.println(newBrak[i].name); //asdf
         }
         return newBrak;
     }
