@@ -10,7 +10,7 @@ public class Bracket
     Team[] teams;
 
     public Team[][] bracket = new Team[4][16];
-
+    public String[] divisions = {"W","X", "Y", "Z"};
 
     public Bracket(File f, Team[] t)
     {
@@ -46,6 +46,7 @@ public class Bracket
         Team[] finalfour = new Team[4];
         for(int i = 0; i < bracket.length; i++) {
             ArrayList<Team> temp = new ArrayList();
+            System.out.println("Division " + divisions[i] + ": ");
             for(int j = 0; j < bracket[i].length; j++){
                 temp.add(bracket[i][j]);
             }
@@ -62,6 +63,7 @@ public class Bracket
                 System.out.println("\n");
             }
         }
+        System.out.println("Final four: ");
         for(int i = 0; i < finalfour.length; i++){
             System.out.println(finalfour[i].name);
         }
