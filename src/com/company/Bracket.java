@@ -44,9 +44,18 @@ public class Bracket
             }
             for (int j = 0; j < 4; j++) {
                 temp = gen(temp);
+                if(j==3)
+                    finalfour[i] = temp.get(0);
             }
         }
-
+        ArrayList<Team> two1 = new ArrayList();
+        two1.add(finalfour[0]); two1.add(finalfour[1]);
+        ArrayList<Team> two2 = new ArrayList();
+        two2.add(finalfour[2]); two2.add(finalfour[3]);
+        ArrayList<Team> finalTwo = new ArrayList();
+        finalTwo.add(gen(two1).get(0));
+        finalTwo.add(gen(two2).get(0));
+        gen(finalTwo);
     }
     public void run() throws IOException
     {
