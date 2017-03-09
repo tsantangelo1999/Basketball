@@ -43,21 +43,26 @@ public class Bracket
                 temp.add(bracket[i][j]);
             }
             for (int j = 0; j < 4; j++) {
+                if(j==0){
+                    for(int k = 0; k < bracket[i].length; k++){
+                        System.out.println(bracket[i][k].name);
+                    }
+                    System.out.println("\n");
+                }
                 temp = gen(temp);
                 if(j==3)
                     finalfour[i] = temp.get(0);
                 System.out.println("\n");
             }
         }
-        ArrayList<Team> two1 = new ArrayList();
-        two1.add(finalfour[0]); two1.add(finalfour[1]);
-        ArrayList<Team> two2 = new ArrayList();
-        two2.add(finalfour[2]); two2.add(finalfour[3]);
-        ArrayList<Team> finalTwo = new ArrayList();
-        finalTwo.add(gen(two1).get(0));
-        finalTwo.add(gen(two2).get(0));
+        for(int i = 0; i < finalfour.length; i++){
+            System.out.println(finalfour[i].name);
+        }
         System.out.println("\n");
-        gen(finalTwo);
+        Team[] finaltwo = new Team[2];
+        finaltwo = gen(finalfour);
+        System.out.println("\n");
+        gen(finaltwo);
     }
     public void run() throws IOException
     {
