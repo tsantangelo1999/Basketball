@@ -28,6 +28,8 @@ public class Bracket
         ArrayList<Team> newBrak = new ArrayList();
         for(int i = 0; i < t.size()/2; i++){
             Team temp = (Team.compareTo(t.get(2*i), t.get(2*i+1)) > 0.5)?t.get(2*i):t.get(2*i+1);
+            newBrak.add(temp);
+            System.out.println(temp.name);
         }
         return newBrak;
     }
