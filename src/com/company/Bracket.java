@@ -46,6 +46,7 @@ public class Bracket
                 temp = gen(temp);
                 if(j==3)
                     finalfour[i] = temp.get(0);
+                System.out.println("\n");
             }
         }
         ArrayList<Team> two1 = new ArrayList();
@@ -55,6 +56,7 @@ public class Bracket
         ArrayList<Team> finalTwo = new ArrayList();
         finalTwo.add(gen(two1).get(0));
         finalTwo.add(gen(two2).get(0));
+        System.out.println("\n");
         gen(finalTwo);
     }
     public void run() throws IOException
@@ -84,5 +86,6 @@ public class Bracket
                 bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))-1] = teams[team - 1101];
             }
         }
+        bracketGen();
     }
 }
