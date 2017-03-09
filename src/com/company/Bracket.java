@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.NumberFormat;
 import java.util.*;
 import java.io.*;
 
@@ -17,19 +18,25 @@ public class Bracket
         teams = t;
     }
     public Team[] gen(Team[] t){
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
         Team[] newBrak = new Team[t.length/2];
         for(int i = 0; i < t.length/2; i++){
             newBrak[i] = (Team.compareTo(t[2*i],t[2*i+1]) > 0.5)?t[2*i]:t[2*i+1];
-            System.out.println(newBrak[i].name); //asdf
+            System.out.println(newBrak[i].name + " " + nf.format(Math.max(Team.compareTo(t[2*i],t[2*i+1]), 1-Team.compareTo(t[2*i],t[2*i+1])))); //asdf
         }
         return newBrak;
     }
     public ArrayList<Team> gen(ArrayList<Team> t){
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
         ArrayList<Team> newBrak = new ArrayList();
         for(int i = 0; i < t.size()/2; i++){
             Team temp = (Team.compareTo(t.get(2*i), t.get(2*i+1)) > 0.5)?t.get(2*i):t.get(2*i+1);
             newBrak.add(temp);
-            System.out.println(temp.name);
+            System.out.println(temp.name + " " + nf.format(Math.max(Team.compareTo(t.get(2*i),t.get(2*i+1)), 1-Team.compareTo(t.get(2*i),t.get(2*i+1)))));
         }
         return newBrak;
     }
