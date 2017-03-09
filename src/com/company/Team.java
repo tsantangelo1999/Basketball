@@ -310,14 +310,13 @@ public class Team// implements Comparable
         return 0;
     }
 
-
     public static double compareTo(Team a, Team b)
     {
-        int points[] = new int[2];
+        double points[] = new double[2];
         if (a.getSeasonWinrate() > b.getSeasonWinrate())
-            points[0]++;
+            points[0] += 3;
         else
-            points[1]++;
+            points[1] += 3;
         if (a.getPointsPerGame() > b.getPointsPerGame())
             points[0]++;
         else
@@ -350,15 +349,10 @@ public class Team// implements Comparable
             points[0]++;
         else
             points[1]++;
-        if (a.getPersonalFoulsPerGame() > b.getPersonalFoulsPerGame())
+        if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
             points[0]++;
         else
             points[1]++;
-        return points[0]/10;
-    }
-    
-    public static double compareTo(Team a, Team b)
-    {
-        
+        return points[0]/12;
     }
 }
