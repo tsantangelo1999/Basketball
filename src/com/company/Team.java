@@ -191,7 +191,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getPointsPerGame();
+            return getSeasonPointsPerGame();
         }
     }
 
@@ -203,7 +203,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getPointsAgainstPerGame();
+            return getSeasonPointsAgainstPerGame();
         }
     }
 
@@ -215,7 +215,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getThreePointPercent();
+            return getSeasonThreePointPercent();
         }
     }
 
@@ -227,7 +227,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getFieldGoalPercent();
+            return getSeasonFieldGoalPercent();
         }
     }
 
@@ -239,7 +239,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getFreeThrowPercent();
+            return getSeasonFreeThrowPercent();
         }
     }
 
@@ -251,7 +251,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getTurnoversPerGame();
+            return getSeasonTurnoversPerGame();
         }
     }
 
@@ -263,7 +263,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getStealsPerGame();
+            return getSeasonStealsPerGame();
         }
     }
 
@@ -275,7 +275,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getBlocksPerGame();
+            return getSeasonBlocksPerGame();
         }
     }
 
@@ -287,7 +287,7 @@ public class Team// implements Comparable
         }
         else
         {
-            return getPersonalFoulsPerGame();
+            return getSeasonPersonalFoulsPerGame();
         }
     }
 
@@ -309,6 +309,7 @@ public class Team// implements Comparable
     {
         return 0;
     }
+
 
     public static double compareTo(Team a, Team b)
     {

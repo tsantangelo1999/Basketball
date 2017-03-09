@@ -113,7 +113,7 @@ public class Main
                     + nf.format(teams[i].getTurnoversPerGame()) + ","
                     + nf.format(teams[i].getStealsPerGame()) + ","
                     + nf.format(teams[i].getBlocksPerGame()) + ","
-                    + nf.format(teams[i].getPersonalFoulsPerGame());
+                    + nf.format(teams[i].getPersonalFoulsPerGame()));
         }
         pw.close();
         fw.close();
