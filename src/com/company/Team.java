@@ -314,31 +314,45 @@ public class Team// implements Comparable
     public static double compareTo(Team a, Team b)
     {
         double points = 0;
-        if (a.getSeasonWinrate() - b.getSeasonWinrate() > -.05 || a.getSeasonWinrate() - b.getSeasonWinrate() < .05)
+        if (Math.abs(a.getSeasonWinrate() - b.getSeasonWinrate()) < .05)
             points += .5;
         else if (a.getSeasonWinrate() > b.getSeasonWinrate())
-            points += 1;
-        if (a.getPointsPerGame() - b.getPointsPerGame() > -4 || a.getPointsPerGame() - b.getPointsPerGame() < 4)
+            points++;
+        if (Math.abs(a.getPointsPerGame() - b.getPointsPerGame()) < 4)
             points += .5;
         else if (a.getPointsPerGame() > b.getPointsPerGame())
             points++;
-        if (a.getPointsAgainstPerGame() - b.getPointsAgainstPerGame() > -4 || a.getPointsAgainstPerGame() - b.getPointsAgainstPerGame() < 4)
+        if (Math.abs(a.getPointsAgainstPerGame() - b.getPointsAgainstPerGame()) < 4)
             points += .5;
         else if (a.getPointsAgainstPerGame() < b.getPointsAgainstPerGame())
             points++;
-        if (a.getThreePointPercent() > b.getThreePointPercent())
+        if (Math.abs(a.getThreePointPercent() - b.getThreePointPercent()) < .05)
+            points += .5;
+        else if (a.getThreePointPercent() > b.getThreePointPercent())
             points++;
-        if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
+        if (Math.abs(a.getFieldGoalPercent() - b.getFieldGoalPercent()) < .05)
+            points += .5;
+        else if (a.getFieldGoalPercent() > b.getFieldGoalPercent())
             points++;
-        if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
+        if (Math.abs(a.getFreeThrowPercent() - b.getFreeThrowPercent()) < .05)
+            points += .5;
+        else if (a.getFreeThrowPercent() > b.getFreeThrowPercent())
             points++;
-        if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
+        if (Math.abs(a.getTurnoversPerGame() - b.getTurnoversPerGame()) < 2)
+            points += .5;
+        else if (a.getTurnoversPerGame() < b.getTurnoversPerGame())
             points++;
-        if (a.getStealsPerGame() > b.getStealsPerGame())
+        if (Math.abs(a.getStealsPerGame() - b.getStealsPerGame()) < 2)
+            points += .5;
+        else if (a.getStealsPerGame() > b.getStealsPerGame())
             points++;
-        if (a.getBlocksPerGame() > b.getBlocksPerGame())
+        if (Math.abs(a.getBlocksPerGame() - b.getBlocksPerGame()) < 2)
+            points += .5;
+        else if (a.getBlocksPerGame() > b.getBlocksPerGame())
             points++;
-        if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
+        if (Math.abs(a.getPersonalFoulsPerGame() - b.getPersonalFoulsPerGame()) < 2)
+            points += .5;
+        else if (a.getPersonalFoulsPerGame() < b.getPersonalFoulsPerGame())
             points++;
         if (a.getFreeThrowPercent() * b.getPersonalFoulsPerGame() > b.getFreeThrowPercent() * a.getPersonalFoulsPerGame())
             points += .5;
