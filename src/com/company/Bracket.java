@@ -89,11 +89,14 @@ public class Bracket
                 if(c > 0.5)
                 {
                     bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))-1] = teams[team - 1101];
+                    System.out.println(teams[team-1101].name + " " + Math.max(c,1-c) );
                 }
                 else
                 {
                     bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))-1] = teams[team2 - 1101];
+                    System.out.println(teams[team2-1101].name+ " " + Math.max(c,1-c)  );
                 }
+                System.out.println(" ");
             }
             else
             {
