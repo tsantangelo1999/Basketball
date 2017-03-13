@@ -62,7 +62,7 @@ public class Main
             int year = sc2.nextInt();
             int teamNum1 = sc2.nextInt() - 1101;
             int teamNum2 = sc2.nextInt() - 1101;
-            double multiplier = 1 - ((2016 - year) * .05);
+            double multiplier = 1 - ((2016-year) * .05);
             int i = sc2.nextInt();
             teams[teamNum1].tourneyTotalPoints += i * multiplier;
             teams[teamNum2].tourneyTotalPointsAgainst += i * multiplier;
@@ -117,7 +117,7 @@ public class Main
         }
         pw.close();
         fw.close();
-        Bracket bracket = new Bracket(new File("TourneySeeds.csv"), teams);
+        Bracket bracket = new Bracket(new File("seeds2017.csv"), teams);
         bracket.run();
     }
 }
