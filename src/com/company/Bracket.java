@@ -103,6 +103,16 @@ public class Bracket
                 bracket[seed.charAt(0) - 87][Integer.parseInt(seed.substring(1, 3))-1] = teams[team - 1101];
             }
         }
+        for(int i = 0; i < bracket.length; i++)
+        {
+            int[] pos = {1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15};
+            Team[] rearrange = new Team[16];
+            for(int j = 0; j < pos.length; j++)
+            {
+                rearrange[j] = bracket[i][pos[j] - 1];
+            }
+            bracket[i] = rearrange;
+        }
         bracketGen();
     }
 }
